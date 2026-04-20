@@ -41,7 +41,7 @@ automation from code to deployment.
 ### Using Docker Compose
 ```bash
 # Clone the repository
-git clone https://github.com/abhijithgeorge008/3--Tier-app-on-Docker-K8s
+git clone https://github.com/abhijithgeorge008/3tier-App-on-Docker-K8s
 
 # Start all services
 docker-compose up -d
