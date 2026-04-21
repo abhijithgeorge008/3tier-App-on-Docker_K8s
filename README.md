@@ -12,6 +12,23 @@ automation from code to deployment.
 
 ## 🏛️ Architecture
 
+┌─────────────────────────────────────────┐
+│           PRESENTATION TIER             │
+│         Frontend (index.html)           │
+│      Kubernetes Deployment + Service    │
+└──────────────────┬──────────────────────┘
+│
+┌──────────────────▼──────────────────────┐
+│           APPLICATION TIER              │
+│         Backend (Node.js/API)           │
+│      Kubernetes Deployment + Service    │
+└──────────────────┬──────────────────────┘
+│
+┌──────────────────▼──────────────────────┐
+│             DATABASE TIER               │
+│         Containerized Database          │
+│         Docker Compose / K8s PV         │
+└─────────────────────────────────────────┘
 ---
 
 ## 🛠️ Technologies Used
@@ -30,10 +47,24 @@ automation from code to deployment.
 
 ## 📁 Repository Structure
 
+├── frontend/
+│   └── index.html          # Frontend application
+├── backend/
+│   └── package.json        # Backend Node.js app
+├── k8s/
+│   └── frontend.yaml       # Kubernetes manifests
+├── Jenkinsfile             # CI/CD pipeline definition
+├── docker-compose.yml      # Local development setup
+└── README.md
 ---
 
 ## 🔁 CI/CD Pipeline (Jenkinsfile)
 
+┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  Clone   │──▶│  Build   │──▶│  Test    │──▶│  Deploy  │
+│  Repo    │   │  Docker  │   │  Stage   │   │   K8s    │
+│          │   │  Images  │   │          │   │          │
+└──────────┘   └──────────┘   └──────────┘   └──────────┘
 ---
 
 ## 🚀 How to Run Locally
